@@ -5,6 +5,7 @@
 > &nbsp;&nbsp; &nbsp;&nbsp; `;`\
 > &nbsp;&nbsp; | [_Item_]\
 > &nbsp;&nbsp; | [_LetStatement_]\
+> &nbsp;&nbsp; | [_LetElseStatement_]\
 > &nbsp;&nbsp; | [_ExpressionStatement_]\
 > &nbsp;&nbsp; | [_MacroInvocationSemi_]
 
@@ -62,6 +63,25 @@ annotation and then optionally by an initializer expression. When no
 type annotation is given, the compiler will infer the type, or signal
 an error if insufficient type information is available for definite
 inference. Any variables introduced by a variable declaration are visible
+from the point of declaration until the end of the enclosing block scope,
+except when they are shadowed by another variable declaration.
+
+
+### `let else` statements
+
+> **<sup>Syntax</sup>**\
+> _LetElseStatement_ :\
+> &nbsp;&nbsp; [_OuterAttribute_]<sup>\*</sup> `let` [_PatternNoTopAlt_]
+>     ( `:` [_Type_] )<sup>?</sup> `=` [_Expression_] `else` [_BlockExpression_] `;`
+
+A *`let else` statement* introduces a new set of [variables], given by a
+refutable [pattern]. The pattern is followed optionally by a type
+annotation. When no type annotation is given, the compiler will infer the type,
+or signal an error if insufficient type information is available for definite
+inference. It is is then followed by an initializer expression as well as a
+diverging `else` block.
+
+Any variables introduced by a variable declaration are visible
 from the point of declaration until the end of the enclosing block scope,
 except when they are shadowed by another variable declaration.
 
@@ -128,10 +148,12 @@ statement are [`cfg`], and [the lint check attributes].
 [`cfg`]: conditional-compilation.md
 [the lint check attributes]: attributes/diagnostics.md#lint-check-attributes
 [pattern]: patterns.md
+[_BlockExpression_]: expressions/block-expr.md
 [_ExpressionStatement_]: #expression-statements
 [_Expression_]: expressions.md
 [_Item_]: items.md
 [_LetStatement_]: #let-statements
+[_LetElseStatement_]: #let-else-statements
 [_MacroInvocationSemi_]: macros.md#macro-invocation
 [_OuterAttribute_]: attributes.md
 [_PatternNoTopAlt_]: patterns.md
