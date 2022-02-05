@@ -75,11 +75,13 @@ except when they are shadowed by another variable declaration.
 >     ( `:` [_Type_] )<sup>?</sup> `=` [_Expression_] `else` [_BlockExpression_] `;`
 
 A *`let else` statement* introduces a new set of [variables], given by a
-refutable [pattern]. The pattern is followed optionally by a type
-annotation. When no type annotation is given, the compiler will infer the type,
-or signal an error if insufficient type information is available for definite
-inference. It is is then followed by an initializer expression as well as a
-diverging `else` block.
+[pattern]. The pattern is followed optionally by a type annotation. When no type
+annotation is given, the compiler will infer the type, or signal an error if
+insufficient type information is available for definite inference. It is is
+then followed by an initializer expression as well as a diverging `else` block.
+Compared to `let` statement patterns which have to be irrefutable, `let else`
+patterns can be both irrefutable and refutable. In the case of irrefutable
+patterns, the `else` clause is redundant, and thus a lint warns about them.
 
 Any variables introduced by a variable declaration are visible
 from the point of declaration until the end of the enclosing block scope,
