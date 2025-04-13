@@ -345,14 +345,13 @@ impl ImplExample {
 [`for` loop]: ../expressions/loop-expr.md#iterator-loops
 [`for`]: ../expressions/loop-expr.md#iterator-loops
 [`if let`]: ../expressions/if-expr.md#if-let-patterns
-[`while let`]: expressions/loop-expr.md#while-let-patterns
+[`while let`]: ../expressions/loop-expr.md#while-let-patterns
 [`let` statement]: ../statements.md#let-statements
 [`macro_export`]: ../macros-by-example.md#path-based-scope
 [`macro_use` prelude]: preludes.md#macro_use-prelude
 [`macro_use`]: ../macros-by-example.md#the-macro_use-attribute
 [`match` arms]: ../expressions/match-expr.md
 [`Self`]: ../paths.md#self-1
-[`while let`]: ../expressions/loop-expr.md#predicate-pattern-loops
 [Associated consts]: ../items/associated-items.md#associated-constants
 [associated items]: ../items/associated-items.md
 [Asterisk glob imports]: ../items/use-declarations.md
